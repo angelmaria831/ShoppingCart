@@ -1,7 +1,7 @@
 
 var products = [
     {
-        "id":1,
+        "pId":1,
         "name": 'Milk',
         "price":25,       
         "currency":"rupees",
@@ -9,7 +9,7 @@ var products = [
         "remainingCount":15
     },
     {
-        "id":2,
+        "pId":2,
         "name": 'Carrot',
         "price":100,        
         "currency":"rupees",
@@ -17,7 +17,7 @@ var products = [
         "remainingCount":0
     },
     {
-        "id":3,
+        "pId":3,
         "name": 'Apple',
         "price":120,
         "currency":"rupees",
@@ -25,7 +25,7 @@ var products = [
         "remainingCount":10
     },
     {
-        "id":4,
+        "pId":4,
         "name": 'Oats',
         "price":50,
         "currency":"rupees",
@@ -33,7 +33,7 @@ var products = [
         "remainingCount":5
     },
     {
-        "id":5,
+        "pId":5,
         "name": 'Orange',
         "price":90,
         "currency":"rupees",
