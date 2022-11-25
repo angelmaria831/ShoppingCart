@@ -4,7 +4,8 @@ const express = require("express"),
       bodyParser = require('body-parser'),
       rateLimit = require('express-rate-limit'),
       api = require('./api'),
-      loaders = require('./loaders/dbScheme');
+      dbScheme = require('./loaders/dbScheme'),
+      userAuth = require('./loaders/userAuth');
 
 
 startServer();
@@ -18,7 +19,8 @@ async function startServer(){
         max:356
     }))
 
-    await loaders(server)
+    await dbScheme(server);
+    await server.use(userAuth)
     await server.use(api);
 
 

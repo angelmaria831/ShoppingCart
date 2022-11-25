@@ -22,21 +22,31 @@ router.patch('/updateCart/:operation/:pId',async(req,res)=>{
     let userId = req.headers.userid;
     let reqDTO = req.params;
 
-    if(reqDTO.operation == "add"){
-        await userController.addItemToCart(userId,reqDTO).then((apiresponse)=>{
-            res.status(apiresponse.statusCode)
-                .send(apiresponse.response)
-         })
-    }else if(reqDTO.operation == "remove"){
-        await userController.removeItemFromCart(userId,reqDTO).then((apiresponse)=>{
-            res.status(apiresponse.statusCode)
-                .send(apiresponse.response)
-         })
-    }else res.status().send("Invalid payload")
+    if(reqDTO.operation && reqDTO.pId){
+        if(reqDTO.operation == "add"){
+            await userController.addItemToCart(userId,reqDTO).then((apiresponse)=>{
+                res.status(apiresponse.statusCode)
+                    .send(apiresponse.response)
+             })
+        }else if(reqDTO.operation == "remove"){
+            await userController.removeItemFromCart(userId,reqDTO).then((apiresponse)=>{
+                res.status(apiresponse.statusCode)
+                    .send(apiresponse.response)
+             })
+        }else res.status().send("Invalid payload")
+    }else res.status(400).send("Bad Request")
+ 
 
 })
 
-
+/**
+ * 
+ * Name : /api/v1/getUserCartList
+ * Definition : API to list user specific cart details
+ * Input : not required
+ * Output : List of items in an array/ null array
+ * 
+ */
 
 router.get('/getUserCartList',async(req,res)=>{
     let userId = req.headers.userid;
