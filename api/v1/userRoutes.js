@@ -38,4 +38,12 @@ router.patch('/updateCart/:operation/:pId',async(req,res)=>{
 
 
 
+router.get('/getUserCartList',async(req,res)=>{
+    let userId = req.headers.userid;
+    await userController.getUserCartList(userId).then((apiresponse)=>{
+        res.status(apiresponse.statusCode)
+        .send(apiresponse.response)
+    })
+})
+
 module.exports = router;
